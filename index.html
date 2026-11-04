@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Snake — one more bite</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<header><span class="eyebrow">THE CLASSIC, FRESHLY GROWN</span><h1>Snake<span>.</span></h1><p>A little focus. A little hunger. One more bite.</p></header>
+<section class="game" aria-label="Snake game">
+<div class="toolbar"><div>SCORE <strong id="score">0</strong></div><div>BEST <strong id="best">0</strong></div><button id="pause" type="button">Pause</button></div>
+<div class="board"><canvas id="board" width="600" height="600" aria-label="Snake playing field"></canvas><div id="overlay"><h2 id="message">Ready to grow?</h2><p id="hint">Eat the coral dots. Keep your distance from the walls.</p><button id="start" type="button">Let’s play ↗</button></div></div>
+<div class="footer"><span>↑ ↓ ← → or WASD to steer</span><span>Space to pause</span></div>
+</section>
+<nav class="controls" aria-label="Direction controls"><button data-dir="up" aria-label="Up">↑</button><div><button data-dir="left" aria-label="Left">←</button><button data-dir="down" aria-label="Down">↓</button><button data-dir="right" aria-label="Right">→</button></div></nav>
+<p class="note">Small moves. Longer stories.</p>
+</main><script type="module" src="app.js"></script>
+</body></html>

@@ -1,0 +1,10 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { createGame, step, placeFood, SIZE } from '../game.js';
+test('moves forward without growing', () => { const g = createGame(); g.food = {x:0,y:0}; const n = step(g); assert.deepEqual(n.snake[0], {x:10,y:10}); assert.equal(n.snake.length,3); assert.equal(n.score,0); });
+test('eating grows the snake and increases score', () => { const g = createGame(); g.food = {x:10,y:10}; const n = step(g); assert.equal(n.snake.length,4); assert.equal(n.score,10); assert.ok(!n.snake.some(p=>p.x===n.food.x&&p.y===n.food.y)); });
+test('cannot reverse direction', () => { assert.deepEqual(step(createGame(),{x:-1,y:0}).snake[0],{x:10,y:10}); });
+test('wall collision ends game', () => { const g=createGame(); g.snake=[{x:19,y:10}]; assert.equal(step(g).over,true); });
+test('body collision ends game', () => { const g=createGame(); g.snake=[{x:2,y:2},{x:2,y:3},{x:3,y:3},{x:3,y:2},{x:4,y:2}]; assert.equal(step(g).over,true); });
+test('moving into vacated tail is allowed', () => { const g=createGame(); g.snake=[{x:2,y:2},{x:2,y:3},{x:3,y:3},{x:3,y:2}];g.food={x:0,y:0}; assert.equal(step(g).over,false); });
+test('full board has no food', () => {const snake=Array.from({length:SIZE*SIZE},(_,i)=>({x:i%SIZE,y:Math.floor(i/SIZE)}));assert.equal(placeFood(snake),null);});
