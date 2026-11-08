@@ -1,18 +1,30 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Snake — one more bite</title><link rel="stylesheet" href="style.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#13121a"><meta name="description" content="Your own little arcade. Pick a snake, chase your best, and make the next round yours.">
+  <title>Snake Club · Mondi Arcade</title><link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
-<header><span class="eyebrow">THE CLASSIC, FRESHLY GROWN</span><h1>Snake<span>.</span></h1><p>A little focus. A little hunger. One more bite.</p></header>
-<section class="game" aria-label="Snake game">
-<div class="toolbar"><div>SCORE <strong id="score">0</strong></div><div>BEST <strong id="best">0</strong></div><button id="pause" type="button">Pause</button></div>
-<div class="board"><canvas id="board" width="600" height="600" aria-label="Snake playing field"></canvas><div id="overlay"><h2 id="message">Ready to grow?</h2><p id="hint">Eat the coral dots. Keep your distance from the walls.</p><button id="start" type="button">Let’s play ↗</button></div></div>
-<div class="footer"><span>↑ ↓ ← → or WASD to steer</span><span>Space to pause</span></div>
-</section>
-<nav class="controls" aria-label="Direction controls"><button data-dir="up" aria-label="Up">↑</button><div><button data-dir="left" aria-label="Left">←</button><button data-dir="down" aria-label="Down">↓</button><button data-dir="right" aria-label="Right">→</button></div></nav>
-<p class="note">Small moves. Longer stories.</p>
-</main><script type="module" src="app.js"></script>
+  <div class="shell">
+    <header class="site-header"><a class="brand" href="./" aria-label="Mondi Arcade home"><span class="brand-icon">m<span>•</span></span> MONDI<span class="brand-light">ARCADE</span></a><span class="edition">INDEPENDENT GAMES. GOOD TIMES.</span><span class="live-dot">LOCAL PLAYER</span></header>
+    <main>
+      <div class="intro"><div><p class="eyebrow">01 / THE CLASSICS COLLECTION</p><h1>Small snake.<br>Big <em>main character</em> energy.</h1><p class="subtitle" id="welcome">Welcome to your little corner of the arcade.</p></div><div class="intro-stamp"><span>EST.</span><strong>2026</strong><span>JUST ONE MORE ROUND ↗</span></div></div>
+      <div class="layout">
+        <section class="game" aria-label="Snake game">
+          <div class="game-top"><div class="game-name"><span class="game-icon">↝</span><div><h2>Snake Club</h2><span id="game-status" role="status">YOUR NEXT PERSONAL BEST STARTS HERE</span></div></div><button id="sound" class="icon-button" aria-pressed="false" aria-label="Enable sound">Sound off</button><button id="pause" class="icon-button" disabled>Pause</button></div>
+          <div class="scoreboard"><div><span>THIS ROUND</span><strong id="score">000</strong></div><div><span>PERSONAL BEST <span class="star">✦</span></span><strong id="best">000</strong></div><div class="skin-equipped"><span>WEARING</span><strong id="equipped">Matcha</strong></div></div>
+          <div class="board"><canvas id="board" width="600" height="600" aria-label="Snake playing field. Use arrow keys or WASD, or swipe to steer."></canvas><div id="overlay"><div class="overlay-badge" aria-hidden="true">↝</div><span class="eyebrow" id="overlay-label">YOUR ARCADE. YOUR RULES.</span><h2 id="message">Make your move.</h2><p id="hint">A little focus. A little hunger.<br>How far will you grow?</p><button id="start" class="primary">Let’s play <span>↗</span></button><span class="overlay-note">NO DOWNLOADS. NO PRESSURE. JUST PLAY.</span></div><div id="toast" role="status"></div></div>
+          <div class="game-footer"><span><kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd> or WASD</span><span><kbd>space</kbd> pause</span><span class="swipe-hint">Swipe to steer</span><span class="speed-label">● CLASSIC</span></div>
+          <nav class="controls" aria-label="Direction controls"><button data-dir="up" aria-label="Up">↑</button><div><button data-dir="left" aria-label="Left">←</button><button data-dir="down" aria-label="Down">↓</button><button data-dir="right" aria-label="Right">→</button></div></nav>
+        </section>
+        <aside>
+          <section class="profile panel"><div class="section-heading"><span class="eyebrow">PLAYER ONE</span><span class="tiny-pill">THAT’S YOU</span></div><div class="identity"><div class="avatar" id="avatar" aria-hidden="true">M</div><div><label for="player-name">YOUR NAME <span>↙ make it yours</span></label><input id="player-name" maxlength="20" value="Mondi" autocomplete="nickname" spellcheck="false"></div></div><p id="player-motto">A fresh start. A new high score.</p><div class="personal-stats"><div><strong id="runs">0</strong><span>ROUNDS PLAYED</span></div><div><strong id="bites">0</strong><span>BITES COLLECTED</span></div></div><div class="milestone"><div><span id="rank">Fresh sprout</span><span id="goal-label">0 / 50 BEST</span></div><progress id="progress" max="50" value="0" aria-label="Personal best progress toward next milestone"></progress><p id="goal-hint">Your first 50 is calling.</p></div></section>
+          <section class="wardrobe panel"><div class="section-heading"><h2>Your next look</h2><span class="tiny-pill">6 SKINS</span></div><p class="panel-description">Same appetite. Different attitude.</p><div class="skins" id="skins" role="group" aria-label="Snake skins"></div><div class="skin-caption"><span class="status-dot"></span><span id="skin-caption">Matcha equipped. Fresh by nature.</span></div></section>
+          <div class="tip"><span>✳</span><p><strong>A little arcade wisdom</strong>Your tail is part of the story.<br>Try not to run into it.</p></div>
+        </aside>
+      </div>
+      <footer class="page-footer"><span>MADE FOR THE “ONE MORE ROUND” PEOPLE.</span><span>Your progress stays in this browser. <span class="heart">♡</span></span></footer>
+    </main>
+  </div><script type="module" src="app.js"></script>
 </body></html>
